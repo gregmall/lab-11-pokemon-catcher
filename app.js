@@ -94,7 +94,7 @@ function eventHandler(e){
 
 
     }
-    console.log(pokemonIndex);
+    
    
     const h2span = document.getElementById('current-results');
    
