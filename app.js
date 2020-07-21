@@ -8,6 +8,7 @@ let pokemonNotPicked;
 
 const labels = document.querySelectorAll('label');
 const nextButton = document.getElementById('next');
+const h2span = document.querySelectorAll('current-results');
 function setPage(){
 
     const randomPokemon1 = getRandomPokemon(pokemonData);
@@ -93,21 +94,25 @@ function eventHandler(e){
 
 
     }
-    
+    console.log(pokemonIndex);
    
     const h2span = document.getElementById('current-results');
    
     pokemonPicks.push(pickedPokemon[pokemonIndex]);
+    h2span.textContent = 'You chose ' + 
     
     console.log(picks);
+console.log(pokemonPicks);
 
-    input1.disabled = true;
-    input2.disabled = true;
-    input3.disabled = true;
-    const choiceDiv = document.getElementById('choice-container');
-    choiceDiv.classList.add('disabled');
-    nextButton.classList.remove('hidden');
+const choiceDiv = document.getElementById('choice-container');
+choiceDiv.classList.add('disabled');
+nextButton.classList.remove('hidden');
     
 }
+if (picks < 5){
 nextButton.addEventListener('click', setPage);
 setPage();
+}else{
+    h2span.textContent = 'game over bruh';
+    nextButton.disabled;
+}
