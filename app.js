@@ -4,7 +4,7 @@ import { getRandomPokemon } from './pokemon-utils.js';
 // initialize state
 let picks = 0;
 let pokemonPicks = [];
-let pokemonNotPicked;
+
 
 const labels = document.querySelectorAll('label');
 const nextButton = document.getElementById('next');
@@ -41,7 +41,7 @@ function setPage(){
     const secondLabel = labels[1];
 
 
-    const input2 = secondLabel.children[0]
+    const input2 = secondLabel.children[0];
     input2.addEventListener('click', eventHandler);
     const image2 = secondLabel.children[1];
     const span2 = firstLabel.children[2];
@@ -99,20 +99,20 @@ function eventHandler(e){
     const h2span = document.getElementById('current-results');
    
     pokemonPicks.push(pickedPokemon[pokemonIndex]);
-    h2span.textContent = 'You chose ' + 
+    h2span.textContent = 'You chose ' + clickedPokemon.pokemon;
     
     console.log(picks);
-console.log(pokemonPicks);
+console.log(pokemonData[pokemonIndex]);
 
-const choiceDiv = document.getElementById('choice-container');
-choiceDiv.classList.add('disabled');
-nextButton.classList.remove('hidden');
+    const choiceDiv = document.getElementById('choice-container');
+    choiceDiv.classList.add('disabled');
+    nextButton.classList.remove('hidden');
     
 }
 if (picks < 5){
-nextButton.addEventListener('click', setPage);
-setPage();
-}else{
+    nextButton.addEventListener('click', setPage);
+    setPage();
+} else {
     h2span.textContent = 'game over bruh';
     nextButton.disabled;
 }
