@@ -4,53 +4,110 @@ import { getRandomPokemon } from './pokemon-utils.js';
 // initialize state
 let picks = 0;
 let pokemonPicks = [];
+let pokemonNotPicked;
 
-const randomPokemon1 = getRandomPokemon(pokemonData);
-let randomPokemon2 = getRandomPokemon(pokemonData);
-let randomPokemon3 = getRandomPokemon(pokemonData);
+const labels = document.querySelectorAll('label');
+const nextButton = document.getElementById('next');
+function setPage(){
 
-while (randomPokemon1.id === randomPokemon2.id || randomPokemon2.id === randomPokemon3.id || randomPokemon3.id === randomPokemon1.id){
+    const randomPokemon1 = getRandomPokemon(pokemonData);
+    let randomPokemon2 = getRandomPokemon(pokemonData);
+    let randomPokemon3 = getRandomPokemon(pokemonData);
 
-    randomPokemon2 = getRandomPokemon(pokemonData);
-    randomPokemon3 = getRandomPokemon(pokemonData);
+    while (randomPokemon1.id === randomPokemon2.id || randomPokemon2.id === randomPokemon3.id || randomPokemon3.id === randomPokemon1.id){
+
+        randomPokemon2 = getRandomPokemon(pokemonData);
+        randomPokemon3 = getRandomPokemon(pokemonData);
+    } 
+
+    console.log(randomPokemon1.id, randomPokemon2.id, randomPokemon3.id);
+
+
+    console.log(labels);
+
+    const firstLabel = labels[0];
+
+    const input1 = firstLabel.children[0];
+    input1.addEventListener('click', eventHandler);
+    const image1 = firstLabel.children[1];
+    const span1 = firstLabel.children[2];
+
+    input1.value = randomPokemon1.id;
+    image1.src = randomPokemon1.url_image;
+    span1.textContent = randomPokemon1.pokemon;
+    console.log(randomPokemon1.pokemon);
+
+    const secondLabel = labels[1];
+
+
+    const input2 = secondLabel.children[0]
+    input2.addEventListener('click', eventHandler);
+    const image2 = secondLabel.children[1];
+    const span2 = firstLabel.children[2];
+
+    input2.value = randomPokemon2.id;
+    image2.src = randomPokemon2.url_image;
+    span2.textContent = randomPokemon1.pokemon;
+    console.log(randomPokemon2.pokemon);
+
+
+
+    const thirdLabel = labels[2];
+
+    const input3 = thirdLabel.children[0];
+    input3.addEventListener('click', eventHandler);
+    const image3 = thirdLabel.children[1];
+    const span3 = firstLabel.children[2];
+
+    input3.value = randomPokemon3.id;
+    image3.src = randomPokemon3.url_image;
+    span3.textContent = randomPokemon1.pokemon;
+    console.log(randomPokemon3.pokemon);
+
+    input1.disabled = false;
+    input2.disabled = false;
+    input3.disabled = false;
+    const choiceDiv = document.getElementById('choice-container');
+    choiceDiv.classList.remove('disabled');
+    nextButton.classList.add('hidden');
+
+
+
+    
+
+
+
 }
 
-console.log(randomPokemon1.id, randomPokemon2.id, randomPokemon3.id);
-const labels = document.querySelectorAll('label');
-console.log(labels);
-const firstLabel = labels[0];
-const span1 = firstLabel.children[0];
-const input1 = firstLabel.children[1];
-const image1 = firstLabel.children[2];
+function eventHandler(e){
+    const clickedPokemon = document.querySelector('input:checked');
+    picks++;
+    const pickedPokemon = e.target.value;
+    
+    let pokemonIndex;
+    for (let i = 0; i < pokemonData.length; i++){
+        const namedPokemon = pokemonData[i];
+        if (namedPokemon.id === clickedPokemon){
+            pokemonIndex = i;
+        }
 
 
-input1.value = randomPokemon1.id;
-span1.textContent = randomPokemon1.pokemon;
-image1.src = randomPokemon1.url_image;
+    }
+    
+   
+    const h2span = document.getElementById('current-results');
+   
+    pokemonPicks.push(pickedPokemon[pokemonIndex]);
+    
+    console.log(picks);
 
-
-const secondLabel = labels[1];
-const span2 = firstLabel.children[0];
-const input2 = secondLabel.children[1];
-const image2 = secondLabel.children[2];
-
-input2.value = randomPokemon2.id;
-span2.textContent = randomPokemon2.pokemon;
-image2.src = randomPokemon2.url_image;
-
-
-
-const thirdLabel = labels[2];
-const span13 = firstLabel.children[0];
-const input3 = thirdLabel.children[1];
-const image3 = thirdLabel.children[2];
-
-input3.value = randomPokemon3.id;
-span13.textContent = randomPokemon3.pokemon;
-image3.src = randomPokemon3.url_image;
-
-
-const clickedPokemon = document.querySelector('input:checked');
-
-console.log(clickedPokemon);
-
+    input1.disabled = true;
+    input2.disabled = true;
+    input3.disabled = true;
+    const choiceDiv = document.getElementById('choice-container');
+    choiceDiv.classList.add('disabled');
+    nextButton.classList.remove('hidden');
+    
+}
+nextButton.addEventListener('click', setPage);
+setPage();
