@@ -1,5 +1,6 @@
 import { pokemonData } from './pokemon.js';
 import { getRandomPokemon } from './pokemon-utils.js';
+import { findById } from './pokemon-utils.js';
 
 // initialize state
 let picks = 0;
@@ -24,7 +25,7 @@ function setPage(){
     console.log(randomPokemon1.id, randomPokemon2.id, randomPokemon3.id);
 
 
-    console.log(labels);
+    
 
     const firstLabel = labels[0];
 
@@ -83,26 +84,29 @@ function setPage(){
 function eventHandler(e){
     const clickedPokemon = document.querySelector('input:checked');
     picks++;
-    const pickedPokemon = e.target.value;
     
-    let pokemonIndex;
-    for (let i = 0; i < pokemonData.length; i++){
-        const namedPokemon = pokemonData[i];
-        if (namedPokemon.id === clickedPokemon){
-            pokemonIndex = i;
-        }
+    const pickedPokemon = clickedPokemon.value;
+    console.log(pickedPokemon);
+    
+    const pokemonTarget = findById(pokemonData, pickedPokemon);
+    console.log(pokemonTarget.pokemon);
+     
 
-
-    }
+        
+    
     
    
-    const h2span = document.getElementById('current-results');
+  
    
-    pokemonPicks.push(pickedPokemon[pokemonIndex]);
-    h2span.textContent = 'You chose ' + clickedPokemon.pokemon;
+    
+    h2span.textContent = 'You chose ' + pokemonTarget.pokemon;
+    console.log('you chose ' + pokemonTarget.pokemon);
     
     console.log(picks);
-    console.log(pokemonData[pokemonIndex]);
+
+    pokemonPicks.push(pokemonTarget.pokemon);
+    console.log(pokemonPicks);
+   
 
     const choiceDiv = document.getElementById('choice-container');
     choiceDiv.classList.add('disabled');
