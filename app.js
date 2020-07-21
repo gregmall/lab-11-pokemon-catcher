@@ -102,7 +102,7 @@ function eventHandler(e){
     h2span.textContent = 'You chose ' + clickedPokemon.pokemon;
     
     console.log(picks);
-console.log(pokemonData[pokemonIndex]);
+    console.log(pokemonData[pokemonIndex]);
 
     const choiceDiv = document.getElementById('choice-container');
     choiceDiv.classList.add('disabled');
