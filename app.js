@@ -1,17 +1,21 @@
 import { pokemonData } from './pokemon.js';
 import { getRandomPokemon } from './pokemon-utils.js';
 import { findById } from './pokemon-utils.js';
+import { encounteredPokemon } from './pokemon-utils.js';
+import { chosenPokemon } from './pokemon-utils.js';
+
 
 // initialize state
 let picks = 0;
-let pokemonPicks = [];
+let pokemonEncountered = [];
+
 
 
 const labels = document.querySelectorAll('label');
 const nextButton = document.getElementById('next');
 const h2span = document.querySelectorAll('current-results');
 function setPage(){
-
+    
     const randomPokemon1 = getRandomPokemon(pokemonData);
     let randomPokemon2 = getRandomPokemon(pokemonData);
     let randomPokemon3 = getRandomPokemon(pokemonData);
@@ -33,39 +37,44 @@ function setPage(){
     input1.addEventListener('click', eventHandler);
     const image1 = firstLabel.children[1];
     const span1 = firstLabel.children[2];
+    console.log(pokemonEncountered, randomPokemon1.id);
+    encounteredPokemon(pokemonEncountered, randomPokemon1.id);
+    
 
     input1.value = randomPokemon1.id;
     image1.src = randomPokemon1.url_image;
     span1.textContent = randomPokemon1.pokemon;
     console.log(randomPokemon1.pokemon);
-
+    
+    
     const secondLabel = labels[1];
-
-
     const input2 = secondLabel.children[0];
     input2.addEventListener('click', eventHandler);
     const image2 = secondLabel.children[1];
     const span2 = firstLabel.children[2];
+    encounteredPokemon(pokemonEncountered, randomPokemon2.id);
 
     input2.value = randomPokemon2.id;
     image2.src = randomPokemon2.url_image;
     span2.textContent = randomPokemon1.pokemon;
     console.log(randomPokemon2.pokemon);
-
+    
 
 
     const thirdLabel = labels[2];
-
     const input3 = thirdLabel.children[0];
     input3.addEventListener('click', eventHandler);
     const image3 = thirdLabel.children[1];
     const span3 = firstLabel.children[2];
-
+    encounteredPokemon(pokemonEncountered, randomPokemon3.id);
+    
     input3.value = randomPokemon3.id;
     image3.src = randomPokemon3.url_image;
     span3.textContent = randomPokemon1.pokemon;
-    console.log(randomPokemon3.pokemon);
-
+    console.log(randomPokemon3.pokemon); 
+    
+    
+    
     input1.disabled = false;
     input2.disabled = false;
     input3.disabled = false;
@@ -89,7 +98,10 @@ function eventHandler(e){
     console.log(pickedPokemon);
     
     const pokemonTarget = findById(pokemonData, pickedPokemon);
-    console.log(pokemonTarget.pokemon);
+
+    
+    chosenPokemon(pokemonEncountered, pickedPokemon);
+    console.log(pokemonEncountered);
      
 
         
@@ -103,16 +115,18 @@ function eventHandler(e){
     console.log('you chose ' + pokemonTarget.pokemon);
     
     console.log(picks);
+    
 
-    pokemonPicks.push(pokemonTarget.pokemon);
-    console.log(pokemonPicks);
    
-
+    
+    
     const choiceDiv = document.getElementById('choice-container');
     choiceDiv.classList.add('disabled');
     nextButton.classList.remove('hidden');
     
 }
+
+
 if (picks < 5){
     nextButton.addEventListener('click', setPage);
     setPage();
@@ -120,3 +134,6 @@ if (picks < 5){
     h2span.textContent = 'game over bruh';
     nextButton.disabled;
 }
+   
+
+

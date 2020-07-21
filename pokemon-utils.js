@@ -18,3 +18,39 @@ export function findById(itemsArray, itemId){
     
     return matchItem;
 }
+
+
+export function encounteredPokemon(pokemonEncountered, id) {
+    let encountered = findById(pokemonEncountered, id);
+ 
+    if (encountered) {
+        encountered.encounters++;
+            
+    } else {
+        const newEncounter = {
+            id: id,
+            encounters : 1,
+            caught: 0
+        };
+        pokemonEncountered.push(newEncounter);
+    }
+        
+}
+export function chosenPokemon(caughtPokemon, id){
+    let caught = findById(caughtPokemon, id);
+    if (caught){
+        caught.caught++;
+
+
+    } else {
+        const newCaught = {
+            id: id,
+            encounters: 1,
+            caught: 1
+        };
+        pokemonEncountered.push(newCaught);
+    }
+}
+   
+
+
