@@ -142,7 +142,7 @@ new Chart(ctx, { // eslint-disable-line
 button.addEventListener('click', () =>{
  
     localStorage.clear;
-    window.location = '../index.html'
+    window.location = '../index.html';
     
 
 

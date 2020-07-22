@@ -93,7 +93,7 @@ function setPage(){
 
 function eventHandler(){
     const clickedPokemon = document.querySelector('input:checked');
-    picks++;
+    
     
     const pickedPokemon = clickedPokemon.value;
     
