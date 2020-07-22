@@ -19,12 +19,16 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: yellow;
+    background-color: white;
    
 }
 header {
+    display: flex;
+    background-image: url('../images/pokegroup.jpg');
+    color: crimson;
     text-align: center;
-    font-size: 50px;
+    font-size: 90px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 50px;
     margin: 20px;
 
@@ -67,10 +71,12 @@ button {
     opacity: .5;
 }
 img {
-    width: 300px;
-    height: 300px;
+    border: 4px magenta solid;
+    width: 200px;
+    height: 200px;
 }
 .nextDiv {
+    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -79,3 +85,17 @@ label {
     display: block;
 }
 
+.choiceDiv {
+    display: flex;
+    width: auto;
+
+}
+.result {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: green;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

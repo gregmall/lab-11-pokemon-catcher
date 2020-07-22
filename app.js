@@ -14,6 +14,7 @@ let counter = 0;
 
 const labels = document.querySelectorAll('label');
 const nextButton = document.getElementById('next');
+const results = document.getElementById('results');
 
 function setPage(){
     
@@ -37,14 +38,14 @@ function setPage(){
     const input1 = firstLabel.children[0];
     input1.addEventListener('click', eventHandler);
     const image1 = firstLabel.children[1];
-    const span1 = firstLabel.children[2];
+    
     console.log(pokemonEncountered, randomPokemon1.pokemon);
     encounteredPokemon(pokemonEncountered, randomPokemon1.pokemon);
     
       
     input1.value = randomPokemon1.pokemon;
     image1.src = randomPokemon1.url_image;
-    span1.textContent = randomPokemon1.pokemon;
+    
     console.log(randomPokemon1.pokemon);
     
     
@@ -52,12 +53,12 @@ function setPage(){
     const input2 = secondLabel.children[0];
     input2.addEventListener('click', eventHandler);
     const image2 = secondLabel.children[1];
-    const span2 = firstLabel.children[2];
+    
     encounteredPokemon(pokemonEncountered, randomPokemon2.pokemon);
 
     input2.value = randomPokemon2.pokemon;
     image2.src = randomPokemon2.url_image;
-    span2.textContent = randomPokemon1.pokemon;
+    
     console.log(randomPokemon2.pokemon);
     
 
@@ -66,12 +67,12 @@ function setPage(){
     const input3 = thirdLabel.children[0];
     input3.addEventListener('click', eventHandler);
     const image3 = thirdLabel.children[1];
-    const span3 = firstLabel.children[2];
+    
     encounteredPokemon(pokemonEncountered, randomPokemon3.pokemon);
     
     input3.value = randomPokemon3.pokemon;
     image3.src = randomPokemon3.url_image;
-    span3.textContent = randomPokemon1.pokemon;
+    
     console.log(randomPokemon3.pokemon); 
     
     
@@ -99,7 +100,7 @@ function eventHandler(){
     console.log(pickedPokemon);
     
     const pokemonTarget = findById(pokemonData, pickedPokemon);
-
+    results.textContent = pokemonTarget.pokemon + '! Good choice!';
     
     chosenPokemon(pokemonEncountered, pickedPokemon);
     console.log(pokemonEncountered);
@@ -151,6 +152,7 @@ function eventHandler(){
 
 }
 nextButton.addEventListener('click', setPage);
+
 setPage();
 
 
