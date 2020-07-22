@@ -4,13 +4,13 @@ export function getRandomPokemon(pokemonArray) {
     const randomPokemonIndex = Math.floor(Math.random() * pokemonData.length);
     return pokemonArray[randomPokemonIndex];
 }
-export function findById(itemsArray, itemId){
+export function findById(itemsArray, pokemon){
     let matchItem = null;
-    const itemNumber = Number(itemId);
+    const itemPokemon = pokemon;
     
     for (let i = 0; i < itemsArray.length; i++){
         
-        if (itemNumber === itemsArray[i].id){
+        if (itemPokemon === itemsArray[i].pokemon){
     
             matchItem = itemsArray[i];
         }
@@ -20,15 +20,15 @@ export function findById(itemsArray, itemId){
 }
 
 
-export function encounteredPokemon(pokemonEncountered, id) {
-    let encountered = findById(pokemonEncountered, id);
+export function encounteredPokemon(pokemonEncountered, pokemon) {
+    let encountered = findById(pokemonEncountered, pokemon);
  
     if (encountered) {
         encountered.encounters++;
             
     } else {
         const newEncounter = {
-            id: id,
+            pokemon: pokemon,
             encounters : 1,
             caught: 0
         };
@@ -36,8 +36,8 @@ export function encounteredPokemon(pokemonEncountered, id) {
     }
         
 }
-export function chosenPokemon(pokemonEncountered, id){
-    let caught = findById(pokemonEncountered, id);
+export function chosenPokemon(pokemonEncountered, pokemon){
+    let caught = findById(pokemonEncountered, pokemon);
     if (caught){
        
         caught.caught++;
@@ -45,7 +45,7 @@ export function chosenPokemon(pokemonEncountered, id){
 
     } else {
         const newCaught = {
-            id: id,
+            pokemon: pokemon,
             encounters: 1,
             caught: 1
         };
@@ -66,21 +66,21 @@ export function mungeNames(pokemonArray) {
 }
 
 export function mungeCaptured(pokemonArray){
-    const captured = [];
+    const caught = [];
    
     for (let i = 0; i < pokemonArray.length; i++){
         const pokemon = pokemonArray[i];
-        captured.push.length(pokemon.captured);
+        caught.push(pokemon.caught);
     }
-    return captured;
+    return caught;
 }
 export function mungeEncountered(pokemonArray){
-    const encountered = [];
+    const encounters = [];
     for (let i = 0; i < pokemonArray.length; i++){
         const pokemon = pokemonArray[i];
-        encountered.push.length(pokemon.captured);
+        encounters.push(pokemon.encounters);
     }
-    return encountered;
+    return encounters;
 
     
 

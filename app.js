@@ -21,13 +21,13 @@ function setPage(){
     let randomPokemon2 = getRandomPokemon(pokemonData);
     let randomPokemon3 = getRandomPokemon(pokemonData);
 
-    while (randomPokemon1.id === randomPokemon2.id || randomPokemon2.id === randomPokemon3.id || randomPokemon3.id === randomPokemon1.id){
+    while (randomPokemon1.pokemon === randomPokemon2.pokemon || randomPokemon2.pokemon === randomPokemon3.pokemon || randomPokemon3.pokemon === randomPokemon1.pokemon){
 
         randomPokemon2 = getRandomPokemon(pokemonData);
         randomPokemon3 = getRandomPokemon(pokemonData);
     } 
 
-    console.log(randomPokemon1.id, randomPokemon2.id, randomPokemon3.id);
+    console.log(randomPokemon1.pokemon, randomPokemon2.pokemon, randomPokemon3.pokemon);
 
 
     
@@ -38,11 +38,11 @@ function setPage(){
     input1.addEventListener('click', eventHandler);
     const image1 = firstLabel.children[1];
     const span1 = firstLabel.children[2];
-    console.log(pokemonEncountered, randomPokemon1.id);
-    encounteredPokemon(pokemonEncountered, randomPokemon1.id);
+    console.log(pokemonEncountered, randomPokemon1.pokemon);
+    encounteredPokemon(pokemonEncountered, randomPokemon1.pokemon);
     
       
-    input1.value = randomPokemon1.id;
+    input1.value = randomPokemon1.pokemon;
     image1.src = randomPokemon1.url_image;
     span1.textContent = randomPokemon1.pokemon;
     console.log(randomPokemon1.pokemon);
@@ -53,9 +53,9 @@ function setPage(){
     input2.addEventListener('click', eventHandler);
     const image2 = secondLabel.children[1];
     const span2 = firstLabel.children[2];
-    encounteredPokemon(pokemonEncountered, randomPokemon2.id);
+    encounteredPokemon(pokemonEncountered, randomPokemon2.pokemon);
 
-    input2.value = randomPokemon2.id;
+    input2.value = randomPokemon2.pokemon;
     image2.src = randomPokemon2.url_image;
     span2.textContent = randomPokemon1.pokemon;
     console.log(randomPokemon2.pokemon);
@@ -67,9 +67,9 @@ function setPage(){
     input3.addEventListener('click', eventHandler);
     const image3 = thirdLabel.children[1];
     const span3 = firstLabel.children[2];
-    encounteredPokemon(pokemonEncountered, randomPokemon3.id);
+    encounteredPokemon(pokemonEncountered, randomPokemon3.pokemon);
     
-    input3.value = randomPokemon3.id;
+    input3.value = randomPokemon3.pokemon;
     image3.src = randomPokemon3.url_image;
     span3.textContent = randomPokemon1.pokemon;
     console.log(randomPokemon3.pokemon); 
@@ -112,7 +112,7 @@ function eventHandler(e){
   
    
     
-    h2span.innerText = 'You chose ' + pokemonTarget.pokemon;
+    
     console.log('you chose ' + pokemonTarget.pokemon);
     
     console.log(picks);
@@ -134,7 +134,7 @@ function eventHandler(e){
         const results = document.getElementById('results');
         console.log(pokemonEncountered);
         localStorage.setItem('POKEMONENCOUNTERED', JSON.stringify(pokemonEncountered));
-
+        
         for (let i = 0; i < pokemonEncountered.length; i ++){
             results.innerHTML = pokemonEncountered[i];
             console.log(pokemonEncountered[i]);
