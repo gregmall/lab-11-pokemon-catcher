@@ -101,21 +101,6 @@ function eventHandler(){
     results.textContent = pokemonTarget.pokemon + '! Good choice!';
     
     chosenPokemon(pokemonEncountered, pickedPokemon);
-   
-     
-
-        
-    
-    
-   
-  
-   
-    
-    
-    
-
-   
-    
     if (counter < 10){
         const choiceDiv = document.getElementById('choice-container');
         choiceDiv.classList.add('disabled');
@@ -124,8 +109,8 @@ function eventHandler(){
         
         
     } else {
-        alert('game oover');
-    
+        alert('YOU HAVE CAUGHT 10 POKEMON');
+      
        
         const results = document.getElementById('results');
         console.log(pokemonEncountered);
