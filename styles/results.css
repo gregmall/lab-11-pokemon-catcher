@@ -19,12 +19,23 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: white;
+    background-color: lightskyblue;
    
 }
 main {
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+header {
+    display: flex;
     
+    color: crimson;
+    justify-content: center;
+    align-self: center;
+    font-size: 90px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 50px;
+    margin: 20px;
 }

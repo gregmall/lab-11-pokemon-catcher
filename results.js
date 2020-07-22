@@ -4,11 +4,11 @@ import { mungeCaptured } from './pokemon-utils.js';
 import { mungeEncountered } from './pokemon-utils.js';
 
 const data = JSON.parse(localStorage.getItem('POKEMONENCOUNTERED'));
-console.log(data);
+
 const names = mungeNames(data);
 const captured = mungeCaptured(data);
 const encountered = mungeEncountered(data);
-console.log(names, captured, encountered);
+const button = document.getElementById('reset');
 
 
 
@@ -138,3 +138,11 @@ new Chart(ctx, { // eslint-disable-line
     }
 });
 
+button.addEventListener('click', () =>{
+ 
+    localStorage.clear;
+    window.location = '../index.html'
+    
+
+
+});
