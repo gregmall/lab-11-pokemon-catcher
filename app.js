@@ -8,6 +8,7 @@ import { chosenPokemon } from './pokemon-utils.js';
 // initialize state
 let picks = 0;
 let pokemonEncountered = [];
+let counter = 0;
 
 
 
@@ -40,7 +41,7 @@ function setPage(){
     console.log(pokemonEncountered, randomPokemon1.id);
     encounteredPokemon(pokemonEncountered, randomPokemon1.id);
     
-
+      
     input1.value = randomPokemon1.id;
     image1.src = randomPokemon1.url_image;
     span1.textContent = randomPokemon1.pokemon;
@@ -111,7 +112,7 @@ function eventHandler(e){
   
    
     
-    h2span.textContent = 'You chose ' + pokemonTarget.pokemon;
+    h2span.innerText = 'You chose ' + pokemonTarget.pokemon;
     console.log('you chose ' + pokemonTarget.pokemon);
     
     console.log(picks);
@@ -119,21 +120,37 @@ function eventHandler(e){
 
    
     
+    if (counter < 10){
+        const choiceDiv = document.getElementById('choice-container');
+        choiceDiv.classList.add('disabled');
+        nextButton.classList.remove('hidden');
+        counter ++;
+        
+        
+    } else {
+        alert('game oover');
     
-    const choiceDiv = document.getElementById('choice-container');
-    choiceDiv.classList.add('disabled');
-    nextButton.classList.remove('hidden');
+       
+        const results = document.getElementById('results');
+        console.log(pokemonEncountered);
+        localStorage.setItem('POKEMONENCOUNTERED', JSON.stringify(pokemonEncountered));
+
+        for (let i = 0; i < pokemonEncountered.length; i ++){
+            results.innerHTML = pokemonEncountered[i];
+            console.log(pokemonEncountered[i]);
+
+        }
+
+                       
+        
+        
     
-}
-
-
-if (picks < 5){
-    nextButton.addEventListener('click', setPage);
-    setPage();
-} else {
-    h2span.textContent = 'game over bruh';
-    nextButton.disabled;
-}
    
+    }
+
+}
+nextButton.addEventListener('click', setPage);
+setPage();
+
 
 

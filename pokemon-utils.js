@@ -36,9 +36,10 @@ export function encounteredPokemon(pokemonEncountered, id) {
     }
         
 }
-export function chosenPokemon(caughtPokemon, id){
-    let caught = findById(caughtPokemon, id);
+export function chosenPokemon(pokemonEncountered, id){
+    let caught = findById(pokemonEncountered, id);
     if (caught){
+       
         caught.caught++;
 
 
@@ -52,5 +53,41 @@ export function chosenPokemon(caughtPokemon, id){
     }
 }
    
+
+export function mungeNames(pokemonArray) {
+    const names = [];
+    for (let i = 0; i < pokemonArray.length; i++){
+        const pokemon = pokemonArray[i];
+        names.push(pokemon.pokemon);
+    }
+    return names;
+
+
+}
+
+export function mungeCaptured(pokemonArray){
+    const captured = [];
+   
+    for (let i = 0; i < pokemonArray.length; i++){
+        const pokemon = pokemonArray[i];
+        captured.push.length(pokemon.captured);
+    }
+    return captured;
+}
+export function mungeEncountered(pokemonArray){
+    const encountered = [];
+    for (let i = 0; i < pokemonArray.length; i++){
+        const pokemon = pokemonArray[i];
+        encountered.push.length(pokemon.captured);
+    }
+    return encountered;
+
+    
+
+}
+
+
+    
+
 
 
