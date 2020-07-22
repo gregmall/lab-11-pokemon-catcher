@@ -40,10 +40,12 @@ function setPage(){
         randomPokemon2 = getRandomPokemon(pokemonData);
         randomPokemon3 = getRandomPokemon(pokemonData);
     } 
+
     input1.disabled = false;
     input2.disabled = false;
     input3.disabled = false;
     results.textContent = '';
+    
     input1.addEventListener('click', eventHandler);
     encounteredPokemon(pokemonEncountered, randomPokemon1.pokemon);
     input1.value = randomPokemon1.pokemon;
@@ -63,11 +65,6 @@ function setPage(){
     choiceDiv.classList.remove('disabled');
     nextButton.classList.add('hidden');
   
-
-
-    
-    
-
 
 
 }
@@ -105,11 +102,6 @@ function eventHandler(){
 
         }
 
-                       
-        
-        
-    
-   
     }
 
 }
