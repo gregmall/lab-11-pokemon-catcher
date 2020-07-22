@@ -6,7 +6,7 @@ import { chosenPokemon } from './pokemon-utils.js';
 
 
 // initialize state
-let picks = 0;
+
 let pokemonEncountered = [];
 let counter = 0;
 
