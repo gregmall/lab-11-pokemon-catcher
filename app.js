@@ -96,7 +96,6 @@ function eventHandler(){
     
     
     const pickedPokemon = clickedPokemon.value;
-    
     const pokemonTarget = findById(pokemonData, pickedPokemon);
     results.textContent = pokemonTarget.pokemon + '! Good choice!';
     
