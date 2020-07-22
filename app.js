@@ -134,6 +134,7 @@ function eventHandler(){
         const results = document.getElementById('results');
         console.log(pokemonEncountered);
         localStorage.setItem('POKEMONENCOUNTERED', JSON.stringify(pokemonEncountered));
+        window.location = './results.html';
         
         for (let i = 0; i < pokemonEncountered.length; i ++){
             results.innerHTML = pokemonEncountered[i];
