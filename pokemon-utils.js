@@ -87,7 +87,4 @@ export function mungeEncountered(pokemonArray){
 }
 
 
-    
-
-
 

@@ -3,6 +3,7 @@ import { mungeNames } from './pokemon-utils.js';
 import { mungeCaptured } from './pokemon-utils.js';
 import { mungeEncountered } from './pokemon-utils.js';
 
+
 const data = JSON.parse(localStorage.getItem('POKEMONENCOUNTERED'));
 
 const names = mungeNames(data);
