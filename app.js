@@ -14,7 +14,7 @@ let counter = 0;
 
 const labels = document.querySelectorAll('label');
 const nextButton = document.getElementById('next');
-const h2span = document.querySelectorAll('current-results');
+
 function setPage(){
     
     const randomPokemon1 = getRandomPokemon(pokemonData);
@@ -91,7 +91,7 @@ function setPage(){
 
 }
 
-function eventHandler(e){
+function eventHandler(){
     const clickedPokemon = document.querySelector('input:checked');
     picks++;
     
