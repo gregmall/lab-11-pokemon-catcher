@@ -19,14 +19,15 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: white;
+    background-image: url('../images/space.jpg');
    
 }
 header {
     display: flex;
     background-image: url('../images/pokegroup.jpg');
     color: crimson;
-    text-align: center;
+    justify-content: center;
+    align-self: center;
     font-size: 90px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     padding: 50px;
@@ -52,13 +53,18 @@ span {
 
 
 }
-h2 {
-    font-size: 20px;
+h2 { 
+    display: flex;
+    font-size: 40px;
     padding: 30px;
-    text-align: center;
+    color: yellowgreen;
+    align-items: center;
+    justify-content: center;
+    animation: blinking 1.5s infinite;
 }
 button {
-    font-size: 20px;
+    font-size: 40px;
+    border-radius: 6px;
     background-color: purple;
     color: white;
 }
@@ -72,8 +78,8 @@ button {
 }
 img {
     border: 4px magenta solid;
-    width: 200px;
-    height: 200px;
+    width: 300x;
+    height: 300px;
 }
 .nextDiv {
     display: flex;
@@ -96,6 +102,14 @@ label {
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    color: green;
+    color: yellowgreen;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+@keyframes blinking{
+    0%{     color: magenta;    }
+    49%{    color: yellow; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: white;    }
 }

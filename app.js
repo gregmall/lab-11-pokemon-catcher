@@ -28,7 +28,7 @@ function setPage(){
         randomPokemon3 = getRandomPokemon(pokemonData);
     } 
 
-    console.log(randomPokemon1.pokemon, randomPokemon2.pokemon, randomPokemon3.pokemon);
+    
 
 
     
@@ -39,14 +39,14 @@ function setPage(){
     input1.addEventListener('click', eventHandler);
     const image1 = firstLabel.children[1];
     
-    console.log(pokemonEncountered, randomPokemon1.pokemon);
+    
     encounteredPokemon(pokemonEncountered, randomPokemon1.pokemon);
     
       
     input1.value = randomPokemon1.pokemon;
     image1.src = randomPokemon1.url_image;
     
-    console.log(randomPokemon1.pokemon);
+    
     
     
     const secondLabel = labels[1];
@@ -59,7 +59,6 @@ function setPage(){
     input2.value = randomPokemon2.pokemon;
     image2.src = randomPokemon2.url_image;
     
-    console.log(randomPokemon2.pokemon);
     
 
 
@@ -68,12 +67,12 @@ function setPage(){
     input3.addEventListener('click', eventHandler);
     const image3 = thirdLabel.children[1];
     
-    encounteredPokemon(pokemonEncountered, randomPokemon3.pokemon);
+    
     
     input3.value = randomPokemon3.pokemon;
     image3.src = randomPokemon3.url_image;
     
-    console.log(randomPokemon3.pokemon); 
+    
     
     
     
@@ -97,13 +96,12 @@ function eventHandler(){
     picks++;
     
     const pickedPokemon = clickedPokemon.value;
-    console.log(pickedPokemon);
     
     const pokemonTarget = findById(pokemonData, pickedPokemon);
     results.textContent = pokemonTarget.pokemon + '! Good choice!';
     
     chosenPokemon(pokemonEncountered, pickedPokemon);
-    console.log(pokemonEncountered);
+   
      
 
         
@@ -114,9 +112,6 @@ function eventHandler(){
    
     
     
-    console.log('you chose ' + pokemonTarget.pokemon);
-    
-    console.log(picks);
     
 
    
