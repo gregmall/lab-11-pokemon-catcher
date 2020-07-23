@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/results.css">
     <link rel="stylesheet" href="styles/home.css">
+
     
     <title>RESULTS CHART</title>
 </head>
@@ -19,14 +20,26 @@
         RESULTS OF THE HUNT
     </header>
     <main>
-    
+        <div class ="graph">
  
         <canvas id="myChart" width="400" height="400"></canvas>
    
  
     
-<script type="module" src="results.js"></script>
-        <div class="results"></div>
+        <script type="module" src="results.js"></script>
+        </div>  
+        <div class="results"><table>
+            <thead >
+                <tr >
+                    <th class="left">NAME</th>
+                    <th>ENCOUNTERED</th>
+                    <th>CAUGHT</th>
+                   
+                </tr>
+            </thead>
+            <tbody ></tbody>
+          
+        </table></div>
     
     </main>
     <footer class="footer">
@@ -34,7 +47,7 @@
         <button id="reset">RESET AND HUNT AGAIN</button>
 
     </footer>
-   
+   <script type="module" src="pokemon-utils.js"></script>
 </body>
 
 </html>

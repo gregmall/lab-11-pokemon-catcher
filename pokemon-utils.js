@@ -1,4 +1,6 @@
+
 import pokemonData from './pokemon.js';
+
 
 export function getRandomPokemon(pokemonArray) {
     const randomPokemonIndex = Math.floor(Math.random() * pokemonData.length);
@@ -86,5 +88,33 @@ export function mungeEncountered(pokemonArray){
 
 }
 
+export function mungeData(pokemonArray, property){
+    const attribute = [];
+    for (let i = 0; i < pokemonArray.length; i++) {
+        const pokemon = findById(pokemonData, pokemonArray[i].name);
+        attribute.push(pokemon[property]);
+    }
+    return attribute;
+}
 
+export function renderPokemonChart(data) {
+    const tr = document.createElement('tr');
+
+    const nameCell = document.createElement('td');
+    nameCell.className = 'left';
+    nameCell.textContent = data.pokemon;
+  
+    tr.appendChild(nameCell);
+
+    const caughtCell = document.createElement('td');
+    caughtCell.textContent = data.caught;
+    tr.appendChild(caughtCell);
+    
+    const encountersCell = document.createElement('td');
+    encountersCell.textContent = data.encounters;
+    tr.appendChild(encountersCell);
+    
+   
+    return tr;
+}
 

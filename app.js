@@ -77,7 +77,7 @@ function eventHandler(){
    
     const pickedPokemon = clickedPokemon.value;
     const pokemonTarget = findById(pokemonData, pickedPokemon);
-    results.textContent = pokemonTarget.pokemon + '! Good choice!';
+    results.textContent = 'You captured ' + pokemonTarget.pokemon + '!  Good job!';
     
     chosenPokemon(pokemonEncountered, pickedPokemon);
     if (counter < 10){

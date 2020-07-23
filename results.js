@@ -1,5 +1,5 @@
 
-import { mungeNames } from './pokemon-utils.js';
+import { mungeNames, renderPokemonChart } from './pokemon-utils.js';
 import { mungeCaptured } from './pokemon-utils.js';
 import { mungeEncountered } from './pokemon-utils.js';
 
@@ -10,6 +10,16 @@ const names = mungeNames(data);
 const captured = mungeCaptured(data);
 const encountered = mungeEncountered(data);
 const button = document.getElementById('reset');
+const tbody = document.querySelector('tbody');
+
+for (let i = 0; i < data.length; i++){
+    const lineItem = data[i];
+    const dom = renderPokemonChart(lineItem, data);
+    tbody.append(dom);
+
+
+}
+
 
 
 
