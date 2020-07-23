@@ -106,13 +106,13 @@ export function renderPokemonChart(data) {
   
     tr.appendChild(nameCell);
 
-    const caughtCell = document.createElement('td');
-    caughtCell.textContent = data.caught;
-    tr.appendChild(caughtCell);
-    
     const encountersCell = document.createElement('td');
     encountersCell.textContent = data.encounters;
     tr.appendChild(encountersCell);
+    
+    const caughtCell = document.createElement('td');
+    caughtCell.textContent = data.caught;
+    tr.appendChild(caughtCell);
     
    
     return tr;
